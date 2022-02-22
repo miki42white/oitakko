@@ -10,8 +10,11 @@ use Illuminate\Support\Facades\Auth;
 class MypageController extends Controller
 {
     public function show(){
+        // $items= DB::table('favorites')
+        // ->join('users','favorites.user_id','=','users.id')->get();
+
         $items=Favorite::where('user_id',Auth::id())->get();
-        
+
         foreach($items as $item){
             $names=School::where('id',$item->school_id)->get();
         }
