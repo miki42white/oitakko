@@ -18,29 +18,31 @@ class MemoController extends Controller
         return view('memo',['memo'=>$memo,'name'=>$name,'school'=>$school,'user'=>$user]);
     }
 
-    public function create(Request $request){
-        $name=request('name');
-        $school=School::where('name','=',$name)->first();
-        $memo=new Memo();
-        $memo->user_id=Auth::user()->id;
-        $memo->school_id=$school->id;
-        $memo->memo=$request->memo;
-        $memo->save();
-        $memo=Memo::where('user_id',Auth::id())->where('school_id',$school->id)->first();
-        $user= Auth::user();
+    // public function create(Request $request){
+    //     $name=request('name');
+    //     $school=School::where('name','=',$name)->first();
+    //     $memo=new Memo();
+    //     $memo->user_id=Auth::user()->id;
+    //     $memo->school_id=$school->id;
+    //     $memo->memo=$request->memo;
+    //     $memo->save();
+    //     $memo=Memo::where('user_id',Auth::id())->where('school_id',$school->id)->first();
+    //     $user= Auth::user();
 
-        return view('memo',['memo'=>$memo,'name'=>$name,'school'=>$school,'user'=>$user]);
-    }
+    //     return view('memo',['memo'=>$memo,'name'=>$name,'school'=>$school,'user'=>$user]);
+    // }
 
-    public function update(Request $request)
+    public function deleteInsert(Request $request)
     {
         $name=request('name');
         $school=School::where('name','=',$name)->first();
         $user= Auth::user();
-        $memo=Memo::where('user_id',Auth::id())->where('school_id',$school->id)->delete();
+        Memo::where('user_id',Auth::id())->where('school_id',$school->id)->delete();
+        $memo=new Memo();
+        $memo->user_id=Auth::id();
+        $memo->school_id=$school->id;
         $memo->memo=$request->memo;
         $memo->save();
-        $memo=Memo::where('user_id',Auth::id())->where('school_id',$school->id)->first();
-        return view('memo',['memo'=>$memo,'name'=>$name,'user'=>$user]);
+        return view('memo',['memo'=>$memo,'name'=>$name,'user'=>$user,'school'=>$school]);
     }
 }

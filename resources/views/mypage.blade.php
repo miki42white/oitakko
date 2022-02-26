@@ -16,7 +16,10 @@
   }
   .school-ttl{
     font-size:20px;
-    padding-bottom: 10%;
+  }
+  .datetime{
+    font-size:10px;
+    padding-bottom: 5%;
   }
   .container-fluid{
   padding: 0;
@@ -24,7 +27,7 @@
 </style>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <script src="https://kit.fontawesome.com/9c47aea43e.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="{{ asset('css/header.css') }}">
+<link rel="stylesheet" href="/css/header.css">
 </head>
 <body>
   <div class="container-fluid">
@@ -32,12 +35,15 @@
     <div class="row">
       <div class="col-12">
         <table>
-          @foreach($names as $name)
+          @foreach($items as $item)
           <tr>
             <div class="school-wrap">
-            <td class="school-ttl"><a href="/record/{{$name->name}}">{{$name->name}}</a></td>
+            <td class="school-ttl"><a href="/record/{{$item->school->name}}">{{$item->school->name}}</a></td>
           </div>
-          <td><a class="fa-solid fa-angle-right" href="/record/{{$name->name}}" ></a></td>
+          <td><a class="fa-solid fa-angle-right" href="/record/{{$item->school->name}}" ></a></td>
+          </tr>
+          <tr>
+            <td class="datetime">{{$item->school->reserves}}</td>
           </tr>
         @endforeach
         </table>

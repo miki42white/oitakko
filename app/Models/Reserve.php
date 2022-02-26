@@ -15,7 +15,11 @@ class Reserve extends Model
     ];
 
 
-    public function check(){
+    public function reserve(){
         return $this->belongsTo('App\Models\Favorite');
-}
+    }
+    public function school(){
+        return $this->belongsTo('App\Models\School');
+    }
+
 }

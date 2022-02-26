@@ -18,12 +18,15 @@ class School extends Model
         'url'
     ];
 
-    public function use(){
+    public function user(){
         return $this->hasOne('App\Models\User');
     }
 
     public function favorite(){
         return $this->hasOne('App\Models\Favorite');
+    }
+    public function reserves(){
+        return $this->hasMany('App\Models\Reserve');
     }
 
 }

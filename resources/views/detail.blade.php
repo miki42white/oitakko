@@ -7,7 +7,7 @@
     <title>Oitakko</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9c47aea43e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="/css/header.css">
     <style>
     .container-fluid{
     padding: 0;
@@ -53,13 +53,13 @@
                             " method="post">
                             @csrf
                             <input type="hidden" name="name" value="{{$items->name}}">
-                            <input type="submit" value="解除">
+                            <input type="submit" value="お気に入り" class="btn btn-success btn-sm">
                             </form>
                             @else
                             <form action="/favorite/{{$items->name}}" method="post">
                             @csrf
                             <input type="hidden" name="name" value="{{$items->name}}">
-                            <input type="submit" value="お気に入り">
+                            <input type="submit" value="お気に入り" class="btn btn-secondary btn-sm">
                             </form>
                             @endif
                         @endif

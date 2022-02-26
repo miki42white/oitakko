@@ -7,7 +7,7 @@
     <title>Oitakko</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9c47aea43e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="/css/header.css">
     <style>
       .container-fluid{
       padding: 0;
@@ -34,21 +34,12 @@
                   <th>メモ</th>
                 </tr>
                 <tr>
-                  @if(isset($memo))
-                  <form action="/updatememo/{{$name}} method="post">
+                  <form action="/memo/{{$name}}" method="post">
                   @csrf
                   <input type="hidden" name="id" value="{{$school->id}}">
-                  <td><textarea name="memo" id="memo" cols="30" rows="10">{{$memo->memo}}</textarea></td>
-                  <td><input type="submit" value="更新"></td>
+                  <td><textarea name="memo" id="memo" cols="30" rows="10">{{$memo ? $memo->memo : ''}}</textarea></td>
+                  <td><input type="submit" value="保存"></td>
                   </form>
-                  @else
-                  <form action="/makememo/{{$name}}" method="post">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$school->id}}">
-                    <td><textarea name="memo" id="memo" cols="30" rows="10"></textarea></td>
-                      <td><input type="submit" value="記録"></td>
-                    </form>
-                  @endif
                   </tr>
             </table>
         </div>

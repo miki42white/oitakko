@@ -34,9 +34,7 @@ Route::get('/record/{name}',[MypageController::class,'record']);
 
 Route::get('/memo/{name}',[MemoController::class,'showmemo']);
 
-Route::post('/makememo/{name}',[MemoController::class,'create']);
-
-Route::post('/updatememo/{name}',[MemoController::class,'update']);
+Route::post('/memo/{name}',[MemoController::class,'deleteInsert']);
 
 Route::get('/check/{name}',[CheckController::class,'showcheck']);
 

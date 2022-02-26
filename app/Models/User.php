@@ -46,7 +46,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\School');
     }
 
-    public function favorite(){
+    public function favorites(){
         return $this->hasMany('App\Models\Favorite');
     }
 }

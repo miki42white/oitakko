@@ -16,7 +16,7 @@ class Favorite extends Model
         'user_id','school_id'
     ];
 
-    public function use(){
+    public function user(){
         return $this->belongsTo('App\Models\User');
     }
 

@@ -19,7 +19,7 @@ class ReserveController extends Controller
         $reserve->save();
         $reserve=Reserve::where('user_id',Auth::id())->where('school_id',$school->id)->first();
         $user= Auth::user();
-        $items=Favorite::where('user_id',Auth::id())->get();
+        $items=School::where('name','=',$name)->first();
         return view ('record',['user'=>$user,'reserve'=>$reserve,'name'=>$name,'items'=>$items]);
 }
 }

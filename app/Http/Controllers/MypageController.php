@@ -5,21 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\School;
 use App\Models\Favorite;
+use App\Models\Reserve;
 use Illuminate\Support\Facades\Auth;
 
 class MypageController extends Controller
 {
     public function show(){
-        // $items= DB::table('favorites')
-        // ->join('users','favorites.user_id','=','users.id')->get();
 
-        $items=Favorite::where('user_id',Auth::id())->get();
 
-        foreach($items as $item){
-            $names=School::where('id',$item->school_id)->get();
-        }
+        $items=Favorite::with('school')->where('user_id',Auth::id())->get();
         $user=Auth::user();
-        return view ('mypage',['names'=>$names,'user'=>$user]);
+        return view ('mypage',['items'=>$items,'user'=>$user]);
     }
 
     public function record(Request $request){

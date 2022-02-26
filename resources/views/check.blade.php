@@ -7,7 +7,7 @@
     <title>Oitakko</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/9c47aea43e.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="/css/header.css">
     <style>
       .container-fluid{
       padding: 0;
@@ -36,7 +36,7 @@
                 <th class="school-ttl">{{$name}}</th>
               </tr>
               @if(isset($check))
-                <form action="/updatecheck/{{$name}} method="post">
+                <form action="/updatecheck/{{$name}}" method="post">
                 @csrf
                   <input type="hidden" name="id" value="{{$check->id}}">
                   <tr>

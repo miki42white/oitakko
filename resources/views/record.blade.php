@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/build/jquery.datetimepicker.full.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-datetimepicker@2.5.20/jquery.datetimepicker.css">
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+    <link rel="stylesheet" href="/css/header.css">
     <style>
         .container-fluid{
         padding: 0;
@@ -55,13 +55,13 @@
                             " method="post">
                             @csrf
                             <input type="hidden" name="name" value="{{$items->name}}">
-                            <input type="submit" value="解除">
+                            <input type="submit" value="お気に入り" class="btn btn-success btn-sm">
                             </form>
                             @else
                             <form action="/favorite/{{$items->name}}" method="post">
                             @csrf
                             <input type="hidden" name="name" value="{{$items->name}}">
-                            <input type="submit" value="お気に入り">
+                            <input type="submit" value="お気に入り" class="btn btn-secondary btn-sm">
                             </form>
                             @endif
                         @endif
