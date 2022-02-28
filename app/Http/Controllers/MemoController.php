@@ -10,39 +10,24 @@ use Illuminate\Support\Facades\Auth;
 
 class MemoController extends Controller
 {
-    public function showmemo(Request $request){
-        $name=request('name');
-        $school=School::where('name','=',$name)->first();
-        $memo=Memo::where('school_id',$school->id)->where('user_id',auth()->user()->id)->first();
+    public function showmemo(Request $request,int $id){
+        $school=School::find($id);
+        $memo=Memo::where('school_id',$id)->where('user_id',auth()->user()->id)->first();
         $user=Auth::user();
-        return view('memo',['memo'=>$memo,'name'=>$name,'school'=>$school,'user'=>$user]);
+        return view('memo',['memo'=>$memo,'school'=>$school,'user'=>$user]);
     }
 
-    // public function create(Request $request){
-    //     $name=request('name');
-    //     $school=School::where('name','=',$name)->first();
-    //     $memo=new Memo();
-    //     $memo->user_id=Auth::user()->id;
-    //     $memo->school_id=$school->id;
-    //     $memo->memo=$request->memo;
-    //     $memo->save();
-    //     $memo=Memo::where('user_id',Auth::id())->where('school_id',$school->id)->first();
-    //     $user= Auth::user();
 
-    //     return view('memo',['memo'=>$memo,'name'=>$name,'school'=>$school,'user'=>$user]);
-    // }
-
-    public function deleteInsert(Request $request)
+    public function deleteInsert(Request $request,int $id)
     {
-        $name=request('name');
-        $school=School::where('name','=',$name)->first();
+        $school=School::find($id);
         $user= Auth::user();
-        Memo::where('user_id',Auth::id())->where('school_id',$school->id)->delete();
+        Memo::where('user_id',Auth::id())->where('school_id',$id)->delete();
         $memo=new Memo();
         $memo->user_id=Auth::id();
-        $memo->school_id=$school->id;
+        $memo->school_id=$id;
         $memo->memo=$request->memo;
         $memo->save();
-        return view('memo',['memo'=>$memo,'name'=>$name,'user'=>$user,'school'=>$school]);
+        return view('memo',['memo'=>$memo,'user'=>$user,'school'=>$school]);
     }
 }

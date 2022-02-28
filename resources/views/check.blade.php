@@ -33,12 +33,11 @@
                 <th>チェックリスト</th>
               </tr>
               <tr>
-                <th class="school-ttl">{{$name}}</th>
+                <th class="school-ttl">{{$school->name}}</th>
               </tr>
               @if(isset($check))
-                <form action="/updatecheck/{{$name}}" method="post">
+                <form action="/updatecheck/{{$school->id}}" method="post">
                 @csrf
-                  <input type="hidden" name="id" value="{{$check->id}}">
                   <tr>
                     <td><p>園舎<br>
                     <input type="radio" name="institution" value="良い" {{ $check->institution == "良い" ? 'checked' : ''}}>良い
@@ -77,9 +76,8 @@
                 <td><input type="submit" value="更新"></td>
                 </form>
               @else
-                <form action="/makecheck/{{$name}}" method="post">
+                <form action="/makecheck/{{$school->id}}" method="post">
                   @csrf
-                  <input type="hidden" name="id" value="{{$school->id}}">
                   <tr>
                     <td><p>園舎<br>
                     <input type="radio" name="institution" value="良い">良い

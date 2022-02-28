@@ -31,15 +31,14 @@
         <div class="col-12">
             <table>
                 <tr>
-                    <th class="school-ttl">{{$name}}</th>
+                    <th class="school-ttl">{{$school->name}}</th>
                 </tr>
                 <tr>
                   <th>メモ</th>
                 </tr>
                 <tr>
-                  <form action="/memo/{{$name}}" method="post">
+                  <form action="/memo/{{$school->id}}" method="post">
                   @csrf
-                  <input type="hidden" name="id" value="{{$school->id}}">
                   <td><textarea name="memo" id="memo" cols="30" rows="10">{{$memo ? $memo->memo : ''}}</textarea></td>
                 </tr>
                 <div class="btn-wrap">

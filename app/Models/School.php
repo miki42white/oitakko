@@ -18,6 +18,11 @@ class School extends Model
         'url'
     ];
 
+    protected $casts=[
+        'lat'=>'double',
+        'lng'=>'double'
+    ];
+
     public function user(){
         return $this->hasOne('App\Models\User');
     }

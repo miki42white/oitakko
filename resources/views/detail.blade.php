@@ -48,21 +48,17 @@
                     <td class="btn">
                         @if(Auth::check())
                             @if(isset($favorite))
-                            <form action="/unfavorite/{{$items->name}}
+                            <form action="/unfavorite/{{$items->id}}
                             " method="post">
                             @csrf
-                            <input type="hidden" name="name" value="{{$items->name}}">
                             <input type="submit" value="お気に入り" class="btn btn-success btn-sm">
                             </form>
                             @else
-                            <form action="/favorite/{{$items->name}}" method="post">
+                            <form action="/favorite/{{$items->id}}" method="post">
                             @csrf
-                            <input type="hidden" name="name" value="{{$items->name}}">
                             <input type="submit" value="お気に入り" class="btn btn-secondary btn-sm">
                             </form>
                             @endif
-                        @else
-                            <input type="submit" value="表示されない">
                         @endif
                     </td>
                 </tr>

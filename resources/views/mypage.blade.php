@@ -30,8 +30,8 @@
         <table>
           @foreach($items as $item)
           <tr>
-            <td class="school-ttl"><a href="/record/{{$item->school->name}}">{{$item->school->name}}</a></td>
-            <td><a class="fa-solid fa-angle-right" href="/record/{{$item->school->name}}" ></a></td>
+            <td class="school-ttl"><a href="/record/{{$item->school->id}}">{{$item->school->name}}</a></td>
+            <td><a class="fa-solid fa-angle-right" href="/record/{{$item->school->id}}" ></a></td>
           </tr>
             @foreach($item->school->reserves as $reserve)
             <tr>

@@ -51,16 +51,14 @@
                     <td class="btn">
                     @if(Auth::check())
                             @if(isset($favorite))
-                            <form action="/unfavorite/{{$items->name}}
+                            <form action="/unfavorite/{{$items->id}}
                             " method="post">
                             @csrf
-                            <input type="hidden" name="name" value="{{$items->name}}">
                             <input type="submit" value="お気に入り" class="btn btn-success btn-sm">
                             </form>
                             @else
-                            <form action="/favorite/{{$items->name}}" method="post">
+                            <form action="/favorite/{{$items->id}}" method="post">
                             @csrf
-                            <input type="hidden" name="name" value="{{$items->name}}">
                             <input type="submit" value="お気に入り" class="btn btn-secondary btn-sm">
                             </form>
                             @endif
@@ -70,7 +68,7 @@
                 <tr>
                     <td class="date">
                     <div>
-                    <form action="/reserve/{{$name}}" method="post">
+                    <form action="/reserve/{{$items->id}}" method="post">
                     @csrf
                     <label for="reserve">見学日<input type="text" id="datetime" name="datetime" value={{$reserve ? $reserve->datetime : ''}}></label>
                     <input type="submit" value="保存">
@@ -79,11 +77,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><a href="/memo/{{$name}}"><i class="fa-solid fa-pen"></i>メモ</a>
+                    <td><a href="/memo/{{$items->id}}"><i class="fa-solid fa-pen"></i>メモ</a>
                     </td>
                 </tr>
                 <tr>
-                    <td><a href="/check/{{$name}}">園見学チェック</a>
+                    <td><a href="/check/{{$items->id}}">園見学チェック</a>
                     </td>
                 </tr>
                 <tr>

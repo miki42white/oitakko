@@ -25,7 +25,9 @@
         <div class="row">
             <div class="col-12" id="map"></div>
         <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-        <script src="/js/sample.js"></script>
+        <script>
+            var data=@json($items);
+        </script>
         <script src="/js/result.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyAvlhGTjdxrVQzZq7gH0LopZ-2LFLOpuPE&libraries=places&callback=initMap" async defer>
         </script>

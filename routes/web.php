@@ -20,27 +20,27 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/detail/{name}',[SchoolController::class,'showdetail']);
+Route::get('/detail/{id}',[SchoolController::class,'showdetail']);
 
-Route::post('/favorite/{name}',[FavoriteController::class,'favorite']);
+Route::post('/favorite/{id}',[FavoriteController::class,'favorite']);
 
-Route::post('/unfavorite/{name}',[FavoriteController::class,'unfavorite']);
+Route::post('/unfavorite/{id}',[FavoriteController::class,'unfavorite']);
 
 Route::get('/mypage',[MypageController::class,'show']);
 
-Route::post('/reserve/{name}',[ReserveController::class,'deleteInsert']);
+Route::post('/reserve/{id}',[ReserveController::class,'deleteInsert']);
 
-Route::get('/record/{name}',[MypageController::class,'record']);
+Route::get('/record/{id}',[MypageController::class,'record']);
 
-Route::get('/memo/{name}',[MemoController::class,'showmemo']);
+Route::get('/memo/{id}',[MemoController::class,'showmemo']);
 
-Route::post('/memo/{name}',[MemoController::class,'deleteInsert']);
+Route::post('/memo/{id}',[MemoController::class,'deleteInsert']);
 
-Route::get('/check/{name}',[CheckController::class,'showcheck']);
+Route::get('/check/{id}',[CheckController::class,'showcheck']);
 
-Route::post('/makecheck/{name}',[CheckController::class,'create']);
+Route::post('/makecheck/{id}',[CheckController::class,'create']);
 
-Route::post('/updatecheck/{name}',[CheckController::class,'update']);
+Route::post('/updatecheck/{id}',[CheckController::class,'update']);
 
 
 

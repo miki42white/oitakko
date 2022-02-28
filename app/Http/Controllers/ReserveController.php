@@ -9,18 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class ReserveController extends Controller
 {
-    public function deleteInsert(Request $request){
-        $name=request('name');
-        $school=School::where('name','=',$name)->first();
+    public function deleteInsert(Request $request, int $id){
+        $school=School::find($id);
         $user= Auth::user();
-        Reserve::where('user_id',Auth::id())->where('school_id',$school->id)->delete();
+        Reserve::where('user_id',Auth::id())->where('school_id',$id)->delete();
         $reserve=new Reserve();
         $reserve->user_id=Auth::id();
-        $reserve->school_id=$school->id;
+        $reserve->school_id=$id;
         $reserve->datetime=$request->datetime;
         $reserve->save();
-        $items=School::where('name','=',$name)->first();
-        return view('record',['user'=>$user,'reserve'=>$reserve,'name'=>$name,'items'=>$items]);
+        return view('record',['user'=>$user,'reserve'=>$reserve,'items'=>$school]);
 
     }
 }
