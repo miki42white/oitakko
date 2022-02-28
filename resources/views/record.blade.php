@@ -24,7 +24,7 @@
             font-size: 25px;
         }
         .btn{
-            margin-left: 80%;
+            margin-left: 50%;
         }
     </style>
     

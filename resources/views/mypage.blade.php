@@ -11,14 +11,11 @@
   td{
     text-align: center;
   }
-  .school-wrap{
-    border-bottom: 1px solid black;
-  }
   .school-ttl{
-    font-size:20px;
+    font-size:40px;
   }
   .datetime{
-    font-size:10px;
+    font-size:20px;
     padding-bottom: 5%;
   }
   .container-fluid{
@@ -37,10 +34,8 @@
         <table>
           @foreach($items as $item)
           <tr>
-            <div class="school-wrap">
             <td class="school-ttl"><a href="/record/{{$item->school->name}}">{{$item->school->name}}</a></td>
-          </div>
-          <td><a class="fa-solid fa-angle-right" href="/record/{{$item->school->name}}" ></a></td>
+            <td><a class="fa-solid fa-angle-right" href="/record/{{$item->school->name}}" ></a></td>
           </tr>
           @foreach($item->school->reserves as $reserve)
           <tr>
