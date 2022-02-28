@@ -14,15 +14,17 @@ class MypageController extends Controller
 
 
         $items=Favorite::with('school')->where('user_id',Auth::id())->get();
+        $reserves=Reserve::with('school')->where('user_id',Auth::id())->get();
         $user=Auth::user();
-        return view ('mypage',['items'=>$items,'user'=>$user]);
+        return view ('mypage',['items'=>$items,'user'=>$user,'reserves'=>$reserves]);
     }
 
     public function record(Request $request){
         $name=request('name');
         $items=School::where('name','=',$name)->first();
         $favorite=Favorite::where('user_id',Auth::id())->where('school_id',$items->id)->first();
+        $reserve=Reserve::where('user_id',Auth::id())->where('school_id',$items->id)->first();
         $user=Auth::user();
-        return view ('record',['items'=>$items,'favorite'=>$favorite,'name'=>$name,'user'=>$user]);
+        return view ('record',['items'=>$items,'favorite'=>$favorite,'name'=>$name,'reserve'=>$reserve,'user'=>$user]);
 }
 }

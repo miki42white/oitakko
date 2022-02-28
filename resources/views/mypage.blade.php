@@ -42,10 +42,12 @@
           </div>
           <td><a class="fa-solid fa-angle-right" href="/record/{{$item->school->name}}" ></a></td>
           </tr>
+          @foreach($item->school->reserves as $reserve)
           <tr>
-            <td class="datetime">{{$item->school->reserves}}</td>
+            <td class="datetime">{{$reserve->datetime}}</td>
           </tr>
-        @endforeach
+          @endforeach
+          @endforeach
         </table>
       </div>
     </div>

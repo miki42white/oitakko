@@ -62,6 +62,8 @@
                             <input type="submit" value="お気に入り" class="btn btn-secondary btn-sm">
                             </form>
                             @endif
+                        @else
+                        <input type="submit" value="表示されない">
                         @endif
                     </td>
                 </tr>

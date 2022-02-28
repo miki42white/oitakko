@@ -70,19 +70,11 @@
                 <tr>
                     <td class="date">
                     <div>
-                    @if(isset($reserve))
                     <form action="/reserve/{{$name}}" method="post">
                     @csrf
-                    <label for="reserve">見学日<input type="text" id="datetimepicker" name="reserve" value={{$reserve->datetime}}></label>
+                    <label for="reserve">見学日<input type="text" id="datetime" name="datetime" value={{$reserve ? $reserve->datetime : ''}}></label>
                     <input type="submit" value="保存">
                     </form>
-                    @else
-                    <form action="/reserve/{{$name}}" method="post">
-                    @csrf
-                    <label for="reserve">見学日<input type="text" id="datetimepicker" name="reserve"></label>
-                    <input type="submit" value="保存">
-                    </form>
-                    @endif
                     </div>
                     </td>
                 </tr>
@@ -104,7 +96,7 @@
 </div>
 <script type="text/javascript">
   $(function () {
-    $("#datetimepicker").datetimepicker({
+    $("#datetime").datetimepicker({
 
     });
   });

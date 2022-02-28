@@ -28,7 +28,7 @@ Route::post('/unfavorite/{name}',[FavoriteController::class,'unfavorite']);
 
 Route::get('/mypage',[MypageController::class,'show']);
 
-Route::post('/reserve/{name}',[ReserveController::class,'reserve']);
+Route::post('/reserve/{name}',[ReserveController::class,'deleteInsert']);
 
 Route::get('/record/{name}',[MypageController::class,'record']);
 
