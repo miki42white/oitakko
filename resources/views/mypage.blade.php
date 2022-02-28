@@ -7,10 +7,6 @@
   table{
     margin:2% auto;
   }
-  th,
-  td{
-    text-align: center;
-  }
   .school-ttl{
     font-size:40px;
   }
@@ -28,7 +24,7 @@
 </head>
 <body>
   <div class="container-fluid">
-  <x-header :user="$user"/>
+    <x-header :user="$user"/>
     <div class="row">
       <div class="col-12">
         <table>
@@ -37,11 +33,11 @@
             <td class="school-ttl"><a href="/record/{{$item->school->name}}">{{$item->school->name}}</a></td>
             <td><a class="fa-solid fa-angle-right" href="/record/{{$item->school->name}}" ></a></td>
           </tr>
-          @foreach($item->school->reserves as $reserve)
-          <tr>
-            <td class="datetime">{{$reserve->datetime}}</td>
-          </tr>
-          @endforeach
+            @foreach($item->school->reserves as $reserve)
+            <tr>
+              <td class="datetime">{{$reserve->datetime}}</td>
+            </tr>
+            @endforeach
           @endforeach
         </table>
       </div>

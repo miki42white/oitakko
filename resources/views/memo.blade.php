@@ -18,6 +18,9 @@
       .school-ttl{
         font-size:25px;
       }
+      .btn-wrap{
+      text-align: center;
+    }
     </style>
 
 </head>
@@ -38,9 +41,11 @@
                   @csrf
                   <input type="hidden" name="id" value="{{$school->id}}">
                   <td><textarea name="memo" id="memo" cols="30" rows="10">{{$memo ? $memo->memo : ''}}</textarea></td>
+                </tr>
+                <div class="btn-wrap">
                   <td><input type="submit" value="保存"></td>
-                  </form>
-                  </tr>
+                </div>
+            </form>
             </table>
         </div>
     </div>

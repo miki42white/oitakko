@@ -25,7 +25,6 @@
         margin-left:70%;
     }
     </style>
-    
 
 </head>
 
@@ -63,7 +62,7 @@
                             </form>
                             @endif
                         @else
-                        <input type="submit" value="表示されない">
+                            <input type="submit" value="表示されない">
                         @endif
                     </td>
                 </tr>
