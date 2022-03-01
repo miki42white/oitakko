@@ -73,12 +73,6 @@ function initMap() {
     markerEvent(i);
   }
   function markerEvent(i){
-    // marker[i].addListener('mouseover', function(){
-    //   infoWindow[i].open(map,marker[i]);
-    // });
-    // marker[i].addListener('mouseout', function(){
-    //   infoWindow[i].close(map,marker[i]);
-    // });
     marker[i].addListener('click', function(){
       infoWindow[i].open(map,marker[i]);
     });
